@@ -22,7 +22,7 @@ async function notify(message) {
     return;
   }
   
-  if (Notification.permission !== 'denied') {
+  if (Notification.permission !== 'granted') {
     await Notification.requestPermission();
   }
   
