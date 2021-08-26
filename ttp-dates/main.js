@@ -7,6 +7,8 @@ const url = 'https://ttp.cbp.dhs.gov/schedulerapi/slots?orderBy=soonest&limit=20
   console.log(appointmentTimes);
   const dateTimes = appointmentTimes.map(slot => mapToDateTime(slot.startTimestamp));
   console.log(dateTimes);
+  
+  new Notification('testing');
 })();
 
 function mapToDateTime(stringDateTime) {
