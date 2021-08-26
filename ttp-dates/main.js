@@ -29,7 +29,7 @@ async function fetchAppointmentTimes() {
 }
 
 function mapToDateTime(stringDateTime) {
-  const [input, year, month, day, hour, minute] =
+  const [year, month, day, hour, minute] =
        stringDateTime.match(/^(\d+)-(\d+)-(\d+)T(\d+):(\d+)$/).splice(1).map(s => Number(s));
   return {year, month, day, hour, minute};
 }
