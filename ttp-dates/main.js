@@ -1,4 +1,5 @@
 const url = 'https://ttp.cbp.dhs.gov/schedulerapi/slots?orderBy=soonest&limit=20&locationId=6480&minimum=1';
+requestPermission();
 
 (async () => {
   while (true) {
@@ -38,7 +39,7 @@ function mapToDateTime(stringDateTime) {
   return {year, month, day, hour, minute};
 }
 
-async function notify(message) {
+async function requestPermission() {
   if (!('Notification' in window)) {
     console.error("This browser does not support desktop notification");
     return;
@@ -50,7 +51,18 @@ async function notify(message) {
     
   if (Notification.permission !== 'granted') {
     console.warn('User denied notification permission request');
-  } else {
+  }
+}
+
+async function notify(message) {
+  if (!('Notification' in window)) {
+    console.error("This browser does not support desktop notification");
+    return;
+  }
+  
+  await requestPermission();
+    
+  if (Notification.permission === 'granted') {
     new Notification(message);
   }
 }
