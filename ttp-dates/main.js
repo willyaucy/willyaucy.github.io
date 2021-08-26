@@ -8,6 +8,8 @@ const url = 'https://ttp.cbp.dhs.gov/schedulerapi/slots?orderBy=soonest&limit=20
     const matchingSlot = appointmentTimes.filter(time => time.year === 2021 && time.month === 9 && time.hour < 9)
     
     if (matchingSlot.length > 0) {
+      document.getElementById('appointment-time').innerText = 
+          `New appointment time available at ${toString(matchingSlot)}`;
       notify(`New appointment time available at ${toString(matchingSlot)}`);
       return;
     }
