@@ -2,6 +2,8 @@ const url = 'https://ttp.cbp.dhs.gov/schedulerapi/slots?orderBy=soonest&limit=20
 requestPermission();
 
 (async () => {
+  let latestMatchingTime = null;
+  
   while (true) {
     console.log(`[${new Date()}] Fetching appointment times`);
     
@@ -15,8 +17,11 @@ requestPermission();
     if (matchingSlots.length > 0) {
       document.getElementById('matches').innerText = 
           `New match\n${matchingSlots.map(slot => toString(slot)).join('\n')}`;
-      notify(`New appointment time available at ${toString(matchingSlots[0])}`);
-      return;
+      
+      if (latestMatchingTime !== toString(matchingSlots[0])) {
+        latestMatchingtime = toString(matchingSlots[0]);
+        notify(`New appointment time available at ${latestMatchingTime}`);
+      }
     }
     
     await sleep(5000);
