@@ -27,7 +27,7 @@ async function notify(message) {
   }
   
     
-  if (permission !== 'granted') {
+  if (Notification.permission !== 'granted') {
     console.warn('User denied notification permission request');
   } else {
     new Notification(message);
