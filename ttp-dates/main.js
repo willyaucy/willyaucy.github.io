@@ -14,7 +14,7 @@ const url = 'https://ttp.cbp.dhs.gov/schedulerapi/slots?orderBy=soonest&limit=20
     if (matchingSlots.length > 0) {
       document.getElementById('matches').innerText = 
           `New match\n${matchingSlots.map(slot => toString(slot)).join('\n')}`;
-      notify(`New appointment time available at ${toString(matchingSlot[0])}`);
+      notify(`New appointment time available at ${toString(matchingSlots[0])}`);
       return;
     }
     
