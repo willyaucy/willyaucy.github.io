@@ -24,6 +24,7 @@ requestPermission();
       }
     }
     
+    document.getElementById('last-updated').innerText = `Last Updated: ${new Date()}`;
     await sleep(5000);
   }
 })();
