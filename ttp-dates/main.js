@@ -12,7 +12,7 @@ requestPermission();
     document.getElementById('appointment-times').innerText = 
         `Appointment times available\n${appointmentTimes.map(slot => slot.toString()).join('\n')}`;
     
-    const matchingSlots = appointmentTimes.filter(time => time.year === 2021 && time.month < 11 && time.hour < 9);
+    const matchingSlots = appointmentTimes.filter(time => time.year === 2021 /* && time.month < 11 && time.hour < 9 */);
     
     if (matchingSlots.length > 0) {
       document.getElementById('matches').innerText = 
