@@ -18,7 +18,7 @@ requestPermission();
       document.getElementById('matches').innerText = 
           `New match\n${matchingSlots.map(slot => slot.toString()).join('\n')}`;
       
-      if (!latestMatchingTime.equalsTo(matchingSlots[0])) {
+      if (!matchingSlots[0].equalsTo(latestMatchingTime)) {
         latestMatchingTime = matchingSlots[0];
         notify(`New appointment time available at ${latestMatchingTime.toString()}`);
       }
