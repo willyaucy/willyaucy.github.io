@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Net worth estimator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script type="module" src="main.js"></script>
+  </head>
+  <body>
+
+<script type="module" src="main.js"></script>
+  <body>
+    <div class="section">
+      <div class="inputs">
+        <div class="field">
+          <label for="current-net-worth">Current net worth</label>
+          <input id="current-net-worth" />
+        </div>
+        <div class="field">
+          <label for="annual-investment-growth">Annual investment growth</label>
+          <input id="annual-investment-growth" />
+        </div>
+        <div class="field">
+          <label for="take-home-annual-income">Take home annual income</label>
+          <input id="take-home-annual-income" />
+        </div>
+        <div class="field">
+          <label for="annual-income-growth">Annual income growth</label>
+          <input id="annual-income-growth" />
+        </div>
+        <div class="field">
+          <label for="annual-expense">Annual expense</label>
+          <input id="annual-expense" />
+        </div>
+        <div class="field">
+          <label for="annual-inflation">Annual inflation</label>
+          <input id="annual-inflation" />
+        </div>
+        <div class="field">
+          <label for="years">Years</label>
+          <input id="years" type="number" />
+        </div>
+      </div>
+      <span id="estimated-net-worth-summary"></span>
+    </div>
+    <div class="section">
+      <canvas id="chart"></canvas>
+    </div>
+  </body>
+</html>
+

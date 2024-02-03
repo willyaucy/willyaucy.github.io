@@ -1,0 +1,37 @@
+html {
+  font-family: Roboto, arial, sans-serif
+}
+
+body,div {
+  display: flex;
+}
+
+body {
+  @media(max-width: 1000px) {
+    flex-direction: column;
+  }
+}
+
+.section {
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+.inputs {
+  display: table;
+  border-spacing: 0 10px;
+
+  .field {
+    display: table-row;
+  
+    & > label,#estimated-net-worth-label {
+      text-align: right;
+      padding-right: 1ch
+    }
+    
+    & > * {
+      display: table-cell;
+      height: 20px;
+    }
+  }
+}
