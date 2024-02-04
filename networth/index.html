@@ -12,41 +12,216 @@
 
 <script type="module" src="main.js"></script>
   <body>
-    <div class="section">
-      <div class="inputs">
-        <div class="field">
-          <label for="current-net-worth">Current net worth</label>
-          <input id="current-net-worth" />
+    <h1>Net Worth Estimator</h1>
+    <div class="main">
+      <div class="section">
+        <div class="inputs">
+          <div class="field">
+            <label for="current-net-worth">Current net worth</label>
+            <input id="current-net-worth" />
+          </div>
+          <div class="field">
+            <label for="annual-investment-growth">Annual investment growth</label>
+            <input id="annual-investment-growth" />
+          </div>
+          <div class="field">
+            <label for="take-home-annual-income">Take home annual income</label>
+            <input id="take-home-annual-income" />
+          </div>
+          <div class="field">
+            <label for="annual-income-growth">Annual income growth</label>
+            <input id="annual-income-growth" />
+          </div>
+          <div class="field">
+            <label for="annual-expense">Annual expense</label>
+            <input id="annual-expense" />
+          </div>
+          <div class="field">
+            <label for="annual-inflation">Annual inflation</label>
+            <input id="annual-inflation" />
+          </div>
+          <div class="field">
+            <label for="years">Years</label>
+            <input id="years" type="number" />
+          </div>
         </div>
-        <div class="field">
-          <label for="annual-investment-growth">Annual investment growth</label>
-          <input id="annual-investment-growth" />
-        </div>
-        <div class="field">
-          <label for="take-home-annual-income">Take home annual income</label>
-          <input id="take-home-annual-income" />
-        </div>
-        <div class="field">
-          <label for="annual-income-growth">Annual income growth</label>
-          <input id="annual-income-growth" />
-        </div>
-        <div class="field">
-          <label for="annual-expense">Annual expense</label>
-          <input id="annual-expense" />
-        </div>
-        <div class="field">
-          <label for="annual-inflation">Annual inflation</label>
-          <input id="annual-inflation" />
-        </div>
-        <div class="field">
-          <label for="years">Years</label>
-          <input id="years" type="number" />
-        </div>
+        <span id="estimated-net-worth-summary"></span>
       </div>
-      <span id="estimated-net-worth-summary"></span>
+      <div class="section">
+        <canvas id="chart"></canvas>
+      </div>
     </div>
-    <div class="section">
-      <canvas id="chart"></canvas>
+    <div>
+      How is the number calculated?
+    </div>
+    <div>
+      <div>
+        <math>
+          <msub>
+            <mi>N</mi>
+            <mi>n</mi>
+          </msub>
+        </math>
+        <span>Net worth at year <math><mi>n</mi></math></span>
+      </div>
+      <div>
+        <math>
+          <msub>
+            <mi>I</mi>
+            <mi>n</mi>
+          </msub>
+        </math>
+        <span>Income at year <math><mi>n</mi></math></span>
+      </div>
+      <div>
+        <math>
+          <msub>
+            <mi>E</mi>
+            <mi>n</mi>
+          </msub>
+        </math>
+        <span>Expense at year <math><mi>n</mi></math></span>
+      </div>
+      <div>
+        <math>
+          <msub>
+            <mi>G</mi>
+            <mi>I</mi>
+          </msub>
+        </math>
+        <span>Annual percentage growth of income</span>
+      </div>
+      <div>
+        <math>
+          <msub>
+            <mi>G</mi>
+            <mi>R</mi>
+          </msub>
+        </math>
+        <span>Annual percentage return on investment</span>
+      </div>
+      <div>
+        <math>
+          <msub>
+            <mi>G</mi>
+            <mi>Inflation</mi>
+          </msub>
+        </math>
+        <span>Annual inflation in percentage</span>
+      </div>
+      <div>
+        <math>
+          <mrow>
+            <msub>
+              <mi>N</mi>
+              <mi>n</mi>
+            </msub>
+            <mo>=</mo>
+            <msub>
+              <mi>N</mi>
+              <mrow>
+                <mi>n</mi>
+                <mo>−</mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mo>×</mo>
+            <mo form="prefix" stretchy="false">(</mo>
+            <mn>1</mn>
+            <mo>+</mo>
+            <mfrac>
+              <msub>
+                <mi>G</mi>
+                <mrow>
+                  <mi>R</mi>
+                </mrow>
+              </msub>
+              <mn>100</mn>
+            </mfrac>
+            <mo form="postfix" stretchy="false">)</mo>
+            <mo>+</mo>
+            <msub>
+              <mi>I</mi>
+              <mrow>
+                <mi>n</mi>
+                <mo>−</mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mo>−</mo>
+            <msub>
+              <mi>E</mi>
+              <mrow>
+                <mi>n</mi>
+                <mo>−</mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+          </mrow>
+        </math>
+      </div>
+      <div>
+        <math>
+          <mrow>
+            <msub>
+              <mi>I</mi>
+              <mi>n</mi>
+            </msub>
+            <mo>=</mo>
+            <msub>
+              <mi>I</mi>
+              <mrow>
+                <mi>n</mi>
+                <mo>−</mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mo>×</mo>
+            <mo form="prefix" stretchy="false">(</mo>
+            <mn>1</mn>
+            <mo>+</mo>
+            <mfrac>
+              <msub>
+                <mi>G</mi>
+                <mi>I</mi>
+              </msub>
+              <mn>100</mn>
+            </mfrac>
+            <mo form="postfix" stretchy="false">)</mo>
+          </mrow>
+        </math>
+      </div>
+      <div>
+        <math>
+          <mrow>
+            <msub>
+              <mi>E</mi>
+              <mi>n</mi>
+            </msub>
+            <mo>=</mo>
+            <msub>
+              <mi>E</mi>
+              <mrow>
+                <mi>n</mi>
+                <mo>−</mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mo>×</mo>
+            <mo form="prefix" stretchy="false">(</mo>
+            <mn>1</mn>
+            <mo>+</mo>
+            <mfrac>
+              <msub>
+                <mi>G</mi>
+                <mi>Inflation</mi>
+              </msub>
+              <mn>100</mn>
+            </mfrac>
+            <mo form="postfix" stretchy="false">)</mo>
+          </mrow>
+        </math>
+      </div>
     </div>
   </body>
 </html>

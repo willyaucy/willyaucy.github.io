@@ -64,7 +64,8 @@ function redraw() {
   setState(state);
 }
 
-addEventListeners(["change"], (event) => redraw());
+addEventListeners(["change"], event => redraw());
+// addEventListener("resize", event => redraw()); // resize chart as window resizes
 
 setState(DEFAULT_STATE);
 
