@@ -29,19 +29,19 @@ export default class State {
       this.years);
   }
 
-  get valid() {
-    return State.isValidValue(this.currentNetWorth) &&
-        State.isValidValue(this.annualInvestmentGrowth) &&
-        State.isValidValue(this.takeHomeAnnualIncome) &&
-        State.isValidValue(this.annualIncomeGrowth) &&
-        State.isValidValue(this.annualExpense) &&
-        State.isValidValue(this.annualInflation) &&
-        State.isValidValue(this.years);
-  }
+  // get valid() {
+  //   return State.isValidValue(this.currentNetWorth) &&
+  //       State.isValidValue(this.annualInvestmentGrowth) &&
+  //       State.isValidValue(this.takeHomeAnnualIncome) &&
+  //       State.isValidValue(this.annualIncomeGrowth) &&
+  //       State.isValidValue(this.annualExpense) &&
+  //       State.isValidValue(this.annualInflation) &&
+  //       State.isValidValue(this.years);
+  // }
 
-  static isValidValue(value) {
-    return typeof(value) === 'number' && value >= 0;
-  }
+  // static isValidValue(value) {
+  //   return typeof(value) === 'number' && value >= 0;
+  // }
 
   toString() {
     return [

@@ -7,9 +7,7 @@ const percentFormatter = new Intl.NumberFormat("en-US", { style: "percent", mini
 
 function toViewModel(state) {
   let estimatedNetWorthSummary =
-      state.valid
-          ? `Your estimated net worth in ${state.years} years: ${renderNumber(usdFormatter, state.estimatedNetWorth)}`
-          : '';
+      `Your estimated net worth in ${state.years} years: ${renderNumber(usdFormatter, state.estimatedNetWorth)}`;
 
   return new ViewModel({
       currentNetWorth: renderNumber(usdFormatter, state.currentNetWorth),
@@ -25,13 +23,13 @@ function toViewModel(state) {
 
 function toState(viewModel) {
   return new State({
-    currentNetWorth: parseNumber(viewModel.currentNetWorth),
-    annualInvestmentGrowth: undefinedSafeDiv(parseNumber(viewModel.annualInvestmentGrowth), 100),
-    takeHomeAnnualIncome: parseNumber(viewModel.takeHomeAnnualIncome),
-    annualIncomeGrowth: undefinedSafeDiv(parseNumber(viewModel.annualIncomeGrowth), 100),
-    annualExpense: parseNumber(viewModel.annualExpense),
-    annualInflation: undefinedSafeDiv(parseNumber(viewModel.annualInflation), 100),
-    years: parseInt(viewModel.years)
+    currentNetWorth: parseNumber(viewModel.currentNetWorth) || 0,
+    annualInvestmentGrowth: undefinedSafeDiv(parseNumber(viewModel.annualInvestmentGrowth), 100) || 0,
+    takeHomeAnnualIncome: parseNumber(viewModel.takeHomeAnnualIncome) || 0,
+    annualIncomeGrowth: undefinedSafeDiv(parseNumber(viewModel.annualIncomeGrowth), 100) || 0,
+    annualExpense: parseNumber(viewModel.annualExpense) || 0,
+    annualInflation: undefinedSafeDiv(parseNumber(viewModel.annualInflation), 100) || 0,
+    years: parseInt(viewModel.years) || 0,
   });
 }
 
